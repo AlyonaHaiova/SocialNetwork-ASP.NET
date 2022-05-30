@@ -24,7 +24,6 @@ namespace SocialNetwork.Services.Impl
 
         }
 
-
         public bool AreFriends(int relationshipId)
         {
             return repository.GetById(relationshipId).RelationshipStatus == RelationshipStatus.Friendship;
@@ -41,10 +40,10 @@ namespace SocialNetwork.Services.Impl
             return relationship.Id;
 
         }
-        // Add user to relationship
 
-        // Ask for friendship
-
-        // Invite user to friendship
+        public List<Relationship> GetRelationshipsOfUser(int userId)
+        {
+            return repository.GetRelationshipsOfUser(userId).Select(r => relationshipMapper.ToModel(r)).ToList();
+        }
     }
 }

@@ -14,9 +14,9 @@ namespace Social.Network.ConsoleApp
         {
             using (var db = new SocialNetworkContext())
             {
-                db.Database.EnsureCreated();
+               /* db.Database.EnsureCreated();
                 db.Users.Add(new SocialNetwork.Entities.UserEntity() { Id = 1, Nickname = "Alyona", Email = "a@gmail.com" });
-                db.SaveChanges();
+                db.SaveChanges();*/
             }
 
         }
