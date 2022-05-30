@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "SocialNetwork.Models/1.0.0": {
+        "dependencies": {
+          "SocialNetwork.Enums": "1.0.0"
+        },
+        "runtime": {
+          "SocialNetwork.Models.dll": {}
+        }
+      },
+      "SocialNetwork.Enums/1.0.0": {
+        "runtime": {
+          "SocialNetwork.Enums.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SocialNetwork.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SocialNetwork.Enums/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

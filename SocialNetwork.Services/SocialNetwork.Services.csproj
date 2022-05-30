@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SocialNetwork.DAL\SocialNetwork.DAL.csproj" />
+    <ProjectReference Include="..\SocialNetwork.Entities\SocialNetwork.Entities.csproj" />
+    <ProjectReference Include="..\SocialNetwork.Enums\SocialNetwork.Enums.csproj" />
+    <ProjectReference Include="..\SocialNetwork.Mappers\SocialNetwork.Mappers.csproj" />
+    <ProjectReference Include="..\SocialNetwork.Models\SocialNetwork.Models.csproj" />
+  </ItemGroup>
+
+</Project>

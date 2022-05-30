@@ -1,0 +1,16 @@
+C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.DAL.dll.config
+C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.DAL.deps.json
+C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.DAL.dll
+C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.DAL.pdb
+C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.Entities.dll
+C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.Entities.pdb
+C:\kpi\SocialNetwork\SocialNetwork.DAL\obj\Debug\netcoreapp3.1\SocialNetwork.DAL.csproj.AssemblyReference.cache
+C:\kpi\SocialNetwork\SocialNetwork.DAL\obj\Debug\netcoreapp3.1\SocialNetwork.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\kpi\SocialNetwork\SocialNetwork.DAL\obj\Debug\netcoreapp3.1\SocialNetwork.DAL.AssemblyInfoInputs.cache
+C:\kpi\SocialNetwork\SocialNetwork.DAL\obj\Debug\netcoreapp3.1\SocialNetwork.DAL.AssemblyInfo.cs
+C:\kpi\SocialNetwork\SocialNetwork.DAL\obj\Debug\netcoreapp3.1\SocialNetwork.DAL.csproj.CoreCompileInputs.cache
+C:\kpi\SocialNetwork\SocialNetwork.DAL\obj\Debug\netcoreapp3.1\SocialNetwork.DAL.csproj.CopyComplete
+C:\kpi\SocialNetwork\SocialNetwork.DAL\obj\Debug\netcoreapp3.1\SocialNetwork.DAL.dll
+C:\kpi\SocialNetwork\SocialNetwork.DAL\obj\Debug\netcoreapp3.1\SocialNetwork.DAL.pdb
+C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.Enums.dll
+C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.Enums.pdb

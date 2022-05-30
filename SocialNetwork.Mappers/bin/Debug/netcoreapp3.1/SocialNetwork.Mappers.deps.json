@@ -1,0 +1,64 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "SocialNetwork.Mappers/1.0.0": {
+        "dependencies": {
+          "SocialNetwork.Entities": "1.0.0",
+          "SocialNetwork.Enums": "1.0.0",
+          "SocialNetwork.Models": "1.0.0"
+        },
+        "runtime": {
+          "SocialNetwork.Mappers.dll": {}
+        }
+      },
+      "SocialNetwork.Entities/1.0.0": {
+        "dependencies": {
+          "SocialNetwork.Enums": "1.0.0"
+        },
+        "runtime": {
+          "SocialNetwork.Entities.dll": {}
+        }
+      },
+      "SocialNetwork.Enums/1.0.0": {
+        "runtime": {
+          "SocialNetwork.Enums.dll": {}
+        }
+      },
+      "SocialNetwork.Models/1.0.0": {
+        "dependencies": {
+          "SocialNetwork.Enums": "1.0.0"
+        },
+        "runtime": {
+          "SocialNetwork.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SocialNetwork.Mappers/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SocialNetwork.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SocialNetwork.Enums/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SocialNetwork.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
