@@ -32,8 +32,8 @@ namespace SocialNetwork.Mappers.Impl
                 Id = model.Id,
                 Text = model.Text,
                 Time = model.Time,
-                Sender = _userMapper.ToEntity(model.Sender),
-                Receiver = _userMapper.ToEntity(model.Receiver),
+                /*Sender = _userMapper.ToEntity(model.Sender),
+                Receiver = _userMapper.ToEntity(model.Receiver),*/
                 SenderId = model.Sender.Id,
                 ReceiverId = model.Receiver.Id,
             };

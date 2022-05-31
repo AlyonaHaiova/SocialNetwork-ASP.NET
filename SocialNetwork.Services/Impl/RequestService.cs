@@ -32,25 +32,19 @@ namespace SocialNetwork.Services.Impl
             relationship.User1 = userMapper.ToModel(userRepository.GetById(senderId));
             relationship.User2 = userMapper.ToModel(userRepository.GetById(receiverId));
             relationship.RelationshipStatus = RelationshipStatus.Waiting;
-            relationshipService.AddRelationship(relationship);
-            return relationship.Id;
+            int id = relationshipService.AddRelationship(relationship);
+            return id;
 
         }
 
         public int AcceptRequest(int relationshipId)
         {
-            var relationship = relationshipRepository.GetById(relationshipId);
-            relationship.RelationshipStatus = RelationshipStatus.Friendship;
-            relationshipRepository.Update(relationship);
-            return relationshipId;
+            return relationshipRepository.ChangeRelationshipStatus(relationshipId, RelationshipStatus.Friendship);
         }
 
         public int DeclineRequest(int relationshipId)
         {
-            var relationship = relationshipRepository.GetById(relationshipId);
-            relationship.RelationshipStatus = RelationshipStatus.DeclinedFriendship;
-            relationshipRepository.Update(relationship);
-            return relationshipId;
+            return relationshipRepository.ChangeRelationshipStatus(relationshipId, RelationshipStatus.DeclinedFriendship);
         }
 
         public List<Relationship> GetRequestsToUser(int userId)

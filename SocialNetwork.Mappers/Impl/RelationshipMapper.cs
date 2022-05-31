@@ -29,8 +29,10 @@ namespace SocialNetwork.Mappers.Impl
             return new RelationshipEntity()
             {
                 Id = model.Id,
-                User1 = _userMapper.ToEntity(model.User1),
-                User2 = _userMapper.ToEntity(model.User2),
+                User1Id = model.User1.Id,
+                User2Id = model.User2.Id,
+               /* User1 = _userMapper.ToEntity(model.User1),
+                User2 = _userMapper.ToEntity(model.User2),*/
                 RelationshipStatus = model.RelationshipStatus,
             };
         }

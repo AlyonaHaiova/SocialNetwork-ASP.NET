@@ -27,7 +27,6 @@ C:\kpi\SocialNetwork\SocialNetwork.ConsoleApp\bin\Debug\netcoreapp3.1\SocialNetw
 C:\kpi\SocialNetwork\SocialNetwork.ConsoleApp\bin\Debug\netcoreapp3.1\SocialNetwork.Models.dll
 C:\kpi\SocialNetwork\SocialNetwork.ConsoleApp\bin\Debug\netcoreapp3.1\SocialNetwork.Services.dll
 C:\kpi\SocialNetwork\SocialNetwork.ConsoleApp\bin\Debug\netcoreapp3.1\SocialNetwork.DAL.pdb
-C:\kpi\SocialNetwork\SocialNetwork.ConsoleApp\bin\Debug\netcoreapp3.1\SocialNetwork.DAL.dll.config
 C:\kpi\SocialNetwork\SocialNetwork.ConsoleApp\bin\Debug\netcoreapp3.1\SocialNetwork.Services.pdb
 C:\kpi\SocialNetwork\SocialNetwork.ConsoleApp\bin\Debug\netcoreapp3.1\SocialNetwork.Entities.pdb
 C:\kpi\SocialNetwork\SocialNetwork.ConsoleApp\bin\Debug\netcoreapp3.1\SocialNetwork.Mappers.pdb
@@ -43,3 +42,4 @@ C:\kpi\SocialNetwork\SocialNetwork.ConsoleApp\obj\Debug\netcoreapp3.1\SocialNetw
 C:\kpi\SocialNetwork\SocialNetwork.ConsoleApp\obj\Debug\netcoreapp3.1\SocialNetwork.ConsoleApp.genruntimeconfig.cache
 C:\kpi\SocialNetwork\SocialNetwork.ConsoleApp\bin\Debug\netcoreapp3.1\SocialNetwork.Enums.dll
 C:\kpi\SocialNetwork\SocialNetwork.ConsoleApp\bin\Debug\netcoreapp3.1\SocialNetwork.Enums.pdb
+C:\kpi\SocialNetwork\SocialNetwork.ConsoleApp\bin\Debug\netcoreapp3.1\SocialNetwork.DAL.dll.config

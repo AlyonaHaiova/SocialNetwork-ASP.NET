@@ -21,6 +21,7 @@ namespace SocialNetwork.Services.Impl
         public UserService()
         {
             userMapper = new UserMapper();
+            relationshipRepository = new UnitOfWork().Relationships;
             repository = new UnitOfWork().Users;
             relationshipService = new RelationshipService();
 
@@ -45,10 +46,8 @@ namespace SocialNetwork.Services.Impl
         public int DeleteUserFromFriends(int userId, int friendId)
         {
             RelationshipEntity relationship = relationshipRepository.GetByUsersIds(userId, friendId);
-            relationship.RelationshipStatus = RelationshipStatus.DeletedFriendship;
-            relationshipRepository.Update(relationship);
-            return relationship.Id;
-
+            relationshipRepository.Remove(relationship);
+            return 0;
         }
 
         public int Login(string email, string password)
@@ -62,9 +61,9 @@ namespace SocialNetwork.Services.Impl
 
         public int Register(string nickname, string email, string password)
         {
-            User user = new User() { Nickname = nickname, Email = email, Password = password };
-            repository.Insert(userMapper.ToEntity(user));
-            return user.Id;
+            UserEntity userEntity = userMapper.ToEntity(new User() { Nickname = nickname, Email = email, Password = password });
+            repository.Insert(userEntity);
+            return userEntity.Id;
         }
 
 

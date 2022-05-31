@@ -6,7 +6,6 @@ namespace SocialNetwork.Enums
     {
         Friendship,
         Waiting,
-        DeclinedFriendship,
-        DeletedFriendship
+        DeclinedFriendship
     }
 }

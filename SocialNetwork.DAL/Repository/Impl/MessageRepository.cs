@@ -4,6 +4,7 @@ using SocialNetwork.Entities;
 using SocialNetwork.Context;
 using System.Linq;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace SocialNetwork.Repository.Impl
 {
@@ -17,21 +18,13 @@ namespace SocialNetwork.Repository.Impl
 
         public IEnumerable<MessageEntity> GetChatMessages(int firstUserId, int secondUserId)
         {
-            return dbSet.Where(m => IsChatMessage(m, firstUserId, secondUserId)).ToList();
+            return context.Messages
+                .Where(m => (m.SenderId == firstUserId && m.ReceiverId == secondUserId) || (m.SenderId == secondUserId && m.ReceiverId == firstUserId))
+                .Include(m => m.Sender)
+                .Include(m => m.Receiver)
+                .ToList();
         }
 
-        private static bool IsChatMessage(MessageEntity m, int firstUserId, int secondUserId)
-        {
-            return (m.SenderId == firstUserId && m.ReceiverId == secondUserId) ||
-                   (m.SenderId == secondUserId && m.ReceiverId == firstUserId);
-        }
-
-        public void Edit(int id, string text)
-        {
-            MessageEntity message = GetById(id);
-            message.Text = text;
-            Update(message);
-        }
-
+  
     }
 }

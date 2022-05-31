@@ -1,4 +1,3 @@
-C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.DAL.dll.config
 C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.DAL.deps.json
 C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.DAL.dll
 C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.DAL.pdb
@@ -14,3 +13,4 @@ C:\kpi\SocialNetwork\SocialNetwork.DAL\obj\Debug\netcoreapp3.1\SocialNetwork.DAL
 C:\kpi\SocialNetwork\SocialNetwork.DAL\obj\Debug\netcoreapp3.1\SocialNetwork.DAL.pdb
 C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.Enums.dll
 C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.Enums.pdb
+C:\kpi\SocialNetwork\SocialNetwork.DAL\bin\Debug\netcoreapp3.1\SocialNetwork.DAL.dll.config

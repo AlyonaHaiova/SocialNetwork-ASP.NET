@@ -16,22 +16,12 @@ namespace SocialNetwork.Repository.Impl
 
         public IEnumerable<UserEntity> GetRelatedUsers(int userId)
         {
-            return context.Relationships
-                .Where(r => HasRelationship(userId, r.User1Id, r.User2Id))
-                .Include(r => r.User1)
-                .Include(r => r.User2)
-                .Select(r => GetRelatedUser(userId, r))
+            List<int> userIds = context.Relationships
+                .Where(r => r.User1Id == userId || r.User2Id == userId)
+                .Select(r => r.User1Id == userId ? r.User2Id : r.User1Id)
                 .ToList();
-        }
-
-        private bool HasRelationship(int userId, int user1Id, int user2Id)
-        {
-            return user1Id == userId || user2Id == userId;
-        }
-
-        private UserEntity GetRelatedUser(int userId, RelationshipEntity relationship)
-        {
-            return relationship.User1Id == userId ? relationship.User2 : relationship.User1;
+ 
+            return userIds.Select(id => GetById(id)).ToList();
         }
 
         public UserEntity GetUserByEmail(string email)

@@ -8,7 +8,6 @@ namespace SocialNetwork.Repository.Abstract
     {
         IEnumerable<MessageEntity> GetChatMessages(int firstUserId, int secondUserId);
 
-        public void Edit(int id, string text);
 
     }
 }

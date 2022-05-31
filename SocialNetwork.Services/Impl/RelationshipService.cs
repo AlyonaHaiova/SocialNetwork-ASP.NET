@@ -36,8 +36,9 @@ namespace SocialNetwork.Services.Impl
 
         public int AddRelationship(Relationship relationship)
         {
-            repository.Insert(relationshipMapper.ToEntity(relationship));
-            return relationship.Id;
+            RelationshipEntity relationshipEntity = relationshipMapper.ToEntity(relationship);
+            repository.Insert(relationshipEntity);
+            return relationshipEntity.Id;
 
         }
 
