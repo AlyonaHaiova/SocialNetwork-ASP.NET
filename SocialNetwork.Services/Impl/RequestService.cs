@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace SocialNetwork.Services.Impl
 {
-    public class RequestService
+    public class RequestService : IRequestService
     {
         private readonly IGenericMapper<UserEntity, User> userMapper;
         private readonly IUserRepository userRepository;
@@ -45,6 +45,11 @@ namespace SocialNetwork.Services.Impl
         public int DeclineRequest(int relationshipId)
         {
             return relationshipRepository.ChangeRelationshipStatus(relationshipId, RelationshipStatus.DeclinedFriendship);
+        }
+
+        public void CancelUsersRequest(int relationshipId)
+        {
+            relationshipRepository.Remove(relationshipId);
         }
 
         public List<Relationship> GetRequestsToUser(int userId)

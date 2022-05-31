@@ -34,6 +34,11 @@ namespace SocialNetwork.Services.Impl
             return repository.GetByUsersIds(user1Id, user2Id).RelationshipStatus == RelationshipStatus.Friendship;
         }
 
+        public bool HasRelationship(int user1Id, int user2Id)
+        {
+            return repository.GetByUsersIds(user1Id, user2Id) == null;
+        }
+
         public int AddRelationship(Relationship relationship)
         {
             RelationshipEntity relationshipEntity = relationshipMapper.ToEntity(relationship);

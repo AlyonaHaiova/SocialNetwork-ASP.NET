@@ -27,11 +27,30 @@ namespace SocialNetwork.Services.Impl
 
         }
 
+        public User GetById(int id)
+        {
+            return userMapper.ToModel(repository.GetById(id));
+        }
+
+        public List<User> GetAll()
+        {
+            return repository.GetAll().Select(u => userMapper.ToModel(u)).ToList();
+        }
+
         public List<User> GetFriends(int userId)
         {
             return repository.GetRelatedUsers(userId)
                                .Where(u => relationshipService.AreFriends(u.Id, userId))
                                .Select(x => userMapper.ToModel(x)).ToList();
+        }
+
+        public List<User> GetNotFriends(int userId, int limit)
+        {
+            return repository.GetAll()
+                .Where(u => !relationshipService.HasRelationship(u.Id, userId))
+                .Select(x => userMapper.ToModel(x))
+                .Take(limit)
+                .ToList();
         }
 
         public int AddUserToFriends(int userId, int friendId)

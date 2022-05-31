@@ -9,5 +9,6 @@ namespace SocialNetwork.Services.Abstract
         public int DeclineRequest(int relationshipId);
         public List<Relationship> GetRequestsToUser(int userId);
         public List<Relationship> GetRequestsFromUser(int userId);
+        public void CancelUsersRequest(int relationshipId);
     }
 }
