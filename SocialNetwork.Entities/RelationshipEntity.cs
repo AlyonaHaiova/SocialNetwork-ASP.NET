@@ -20,13 +20,9 @@ namespace SocialNetwork.Entities
         [Column("status")]
         public RelationshipStatus RelationshipStatus { get; set; }
 
-     /*   [Column("statusId")]
-        public int StatusId { get; set; }*/
-
         public virtual UserEntity User1 { get; set; }
 
         public virtual UserEntity User2 { get; set; }
 
-       /* public virtual StatusEntity Status { get; set; }*/
     }
 }

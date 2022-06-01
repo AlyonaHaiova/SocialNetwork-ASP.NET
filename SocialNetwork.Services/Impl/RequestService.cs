@@ -1,30 +1,30 @@
 ﻿using SocialNetwork.Entities;
 using SocialNetwork.Mappers.Abstract;
-using SocialNetwork.Mappers.Impl;
 using SocialNetwork.Models;
-using SocialNetwork.UOW.Impl;
 using SocialNetwork.Repository.Abstract;
 using SocialNetwork.Enums;
 using SocialNetwork.Services.Abstract;
 using System.Collections.Generic;
 using System.Linq;
+using SocialNetwork.UOW.Abstract;
 
 namespace SocialNetwork.Services.Impl
 {
     public class RequestService : IRequestService
     {
+        private readonly IUnitOfWork uow;
         private readonly IGenericMapper<UserEntity, User> userMapper;
         private readonly IUserRepository userRepository;
         private readonly IRelationshipRepository relationshipRepository;
         private readonly IRelationshipService relationshipService;
 
-        public RequestService()
+        public RequestService(IUnitOfWork uow, IGenericMapper<UserEntity, User> userMapper, IRelationshipService relationshipService)
         {
-            userMapper = new UserMapper();
-            userRepository = new UnitOfWork().Users;
-            relationshipRepository = new UnitOfWork().Relationships;
-            relationshipService = new RelationshipService();
-
+            this.uow = uow;
+            this.userMapper = userMapper;
+            this.relationshipService = relationshipService;
+            userRepository = uow.Users();
+            relationshipRepository = uow.Relationships();
         }
         public int SendRequestForFriendship(int senderId, int receiverId)
         {
@@ -34,7 +34,6 @@ namespace SocialNetwork.Services.Impl
             relationship.RelationshipStatus = RelationshipStatus.Waiting;
             int id = relationshipService.AddRelationship(relationship);
             return id;
-
         }
 
         public int AcceptRequest(int relationshipId)

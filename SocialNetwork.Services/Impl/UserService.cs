@@ -1,29 +1,30 @@
 using SocialNetwork.Entities;
 using SocialNetwork.Mappers.Abstract;
-using SocialNetwork.Mappers.Impl;
 using SocialNetwork.Models;
-using SocialNetwork.UOW.Impl;
 using SocialNetwork.Repository.Abstract;
 using System.Collections.Generic;
 using System.Linq;
 using SocialNetwork.Enums;
 using SocialNetwork.Services.Abstract;
+using SocialNetwork.UOW.Abstract;
 
 namespace SocialNetwork.Services.Impl
 {
     public class UserService : IUserService
     {
+        private readonly IUnitOfWork uow;
         private readonly IGenericMapper<UserEntity, User> userMapper;
         private readonly IUserRepository repository;
         private readonly IRelationshipService relationshipService;
         private readonly IRelationshipRepository relationshipRepository;
 
-        public UserService()
+        public UserService(IUnitOfWork uow, IGenericMapper<UserEntity, User> userMapper, IRelationshipService relationshipService)
         {
-            userMapper = new UserMapper();
-            relationshipRepository = new UnitOfWork().Relationships;
-            repository = new UnitOfWork().Users;
-            relationshipService = new RelationshipService();
+            this.uow = uow;
+            this.userMapper = userMapper;       
+            this.relationshipService = relationshipService;
+            repository = uow.Users();
+            relationshipRepository = uow.Relationships();
 
         }
 
@@ -41,7 +42,8 @@ namespace SocialNetwork.Services.Impl
         {
             return repository.GetRelatedUsers(userId)
                                .Where(u => relationshipService.AreFriends(u.Id, userId))
-                               .Select(x => userMapper.ToModel(x)).ToList();
+                               .Select(x => userMapper.ToModel(x))
+                               .ToList();
         }
 
         public List<User> GetNotFriends(int userId, int limit)
@@ -84,7 +86,6 @@ namespace SocialNetwork.Services.Impl
             repository.Insert(userEntity);
             return userEntity.Id;
         }
-
 
     }
 }

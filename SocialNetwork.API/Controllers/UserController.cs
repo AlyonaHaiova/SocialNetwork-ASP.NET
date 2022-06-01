@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SocialNetwork.Models;
 using SocialNetwork.Models.Dto;
 using SocialNetwork.Services.Abstract;
-using SocialNetwork.Services.Impl;
 using System.Collections.Generic;
 
 namespace SocialNetwork.API.Controllers
@@ -13,15 +11,13 @@ namespace SocialNetwork.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService userService;
-        private readonly IRequestService requestService;
 
-        public UserController()
+        public UserController(IUserService userService)
         {
-            userService = new UserService();
-            requestService = new RequestService();
+            this.userService = userService;
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{id}")]
         public User GetUser([FromRoute] int id)
         {
             return userService.GetById(id);
@@ -51,17 +47,10 @@ namespace SocialNetwork.API.Controllers
             return userService.GetFriends(id);
         }
 
-
         [HttpGet("{id}/random-users/{limit}")]
         public List<User> GetNotFriendsOfUser([FromRoute] int id, int limit)
         {
             return userService.GetNotFriends(id, limit);
-        }
-
-        [HttpPost("{id}/friends/{friendId}")]
-        public int AddUserToFriends([FromRoute] int id, int friendId)
-        {
-            return userService.AddUserToFriends(id, friendId);
         }
 
         [HttpDelete("{id}/friends/{friendId}")]
@@ -69,9 +58,6 @@ namespace SocialNetwork.API.Controllers
         {
             return userService.DeleteUserFromFriends(id, friendId);
         }
-
-       
-
 
     }
 }

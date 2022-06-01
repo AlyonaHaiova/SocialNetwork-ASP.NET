@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SocialNetwork.Models;
-using SocialNetwork.Models.Dto;
 using SocialNetwork.Services.Abstract;
-using SocialNetwork.Services.Impl;
 using System.Collections.Generic;
 
 namespace SocialNetwork.API.Controllers
@@ -14,9 +11,9 @@ namespace SocialNetwork.API.Controllers
     {
         private readonly IRequestService requestService;
 
-        public RequestController()
+        public RequestController(IRequestService requestService)
         {
-            requestService = new RequestService();
+            this.requestService = requestService;
         }
 
         [HttpGet("received")]
@@ -29,6 +26,12 @@ namespace SocialNetwork.API.Controllers
         public List<Relationship> GetRequestsFromUser([FromRoute] int id)
         {
             return requestService.GetRequestsFromUser(id);
+        }
+
+        [HttpPost("{friendId}")]
+        public int SendRequestForFriendship([FromRoute] int id, int friendId)
+        {
+            return requestService.SendRequestForFriendship(id, friendId);
         }
 
         [HttpPut("{relationshipId}/accept")]

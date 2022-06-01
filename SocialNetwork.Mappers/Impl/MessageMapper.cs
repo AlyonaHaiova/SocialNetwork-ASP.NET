@@ -6,11 +6,11 @@ namespace SocialNetwork.Mappers.Impl
 {
     public class MessageMapper : IGenericMapper<MessageEntity, Message>
     {
-        private readonly IGenericMapper<UserEntity, User> _userMapper;
+        private readonly IGenericMapper<UserEntity, User> userMapper;
 
-        public MessageMapper()
+        public MessageMapper(IGenericMapper<UserEntity, User> userMapper)
         {
-            _userMapper = new UserMapper();
+            this.userMapper = userMapper;
         }
 
         public Message ToModel(MessageEntity entity)
@@ -20,8 +20,8 @@ namespace SocialNetwork.Mappers.Impl
                 Id = entity.Id,
                 Text = entity.Text,
                 Time = entity.Time,
-                Sender = _userMapper.ToModel(entity.Sender),
-                Receiver = _userMapper.ToModel(entity.Receiver),
+                Sender = userMapper.ToModel(entity.Sender),
+                Receiver = userMapper.ToModel(entity.Receiver),
             };
         }
 
@@ -32,8 +32,6 @@ namespace SocialNetwork.Mappers.Impl
                 Id = model.Id,
                 Text = model.Text,
                 Time = model.Time,
-                /*Sender = _userMapper.ToEntity(model.Sender),
-                Receiver = _userMapper.ToEntity(model.Receiver),*/
                 SenderId = model.Sender.Id,
                 ReceiverId = model.Receiver.Id,
             };

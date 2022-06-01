@@ -1,27 +1,27 @@
 using SocialNetwork.Entities;
 using SocialNetwork.Mappers.Abstract;
-using SocialNetwork.Mappers.Impl;
 using SocialNetwork.Models;
-using SocialNetwork.UOW.Impl;
 using SocialNetwork.Repository.Abstract;
 using System.Collections.Generic;
 using System.Linq;
 using SocialNetwork.Enums;
 using SocialNetwork.Services.Abstract;
+using SocialNetwork.UOW.Abstract;
 
 namespace SocialNetwork.Services.Impl
 {
 
     public class RelationshipService : IRelationshipService
     {
+        private readonly IUnitOfWork uow;
         private readonly IGenericMapper<RelationshipEntity, Relationship> relationshipMapper;
         private readonly IRelationshipRepository repository;
 
-        public RelationshipService()
+        public RelationshipService(IUnitOfWork uow, IGenericMapper<RelationshipEntity, Relationship> relationshipMapper)
         {
-            relationshipMapper = new RelationshipMapper();
-            repository = new UnitOfWork().Relationships;
-
+            this.uow = uow;
+            this.relationshipMapper = relationshipMapper;
+            repository = uow.Relationships(); 
         }
 
         public bool AreFriends(int relationshipId)
@@ -44,7 +44,6 @@ namespace SocialNetwork.Services.Impl
             RelationshipEntity relationshipEntity = relationshipMapper.ToEntity(relationship);
             repository.Insert(relationshipEntity);
             return relationshipEntity.Id;
-
         }
 
         public List<Relationship> GetRelationshipsOfUser(int userId)

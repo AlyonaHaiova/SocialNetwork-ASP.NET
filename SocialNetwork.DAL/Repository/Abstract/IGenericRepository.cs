@@ -6,7 +6,6 @@ namespace SocialNetwork.Repository.Abstract
 
     public interface IGenericRepository<TEntity> where TEntity : class
     {
-
         TEntity GetById(object id);
         IEnumerable<TEntity> GetAll();
         IEnumerable<TEntity> Get(Func<TEntity, bool> predicate);

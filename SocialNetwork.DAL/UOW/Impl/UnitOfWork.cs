@@ -1,45 +1,41 @@
 using SocialNetwork.Context;
 using SocialNetwork.UOW.Abstract;
-using SocialNetwork.Repository.Impl;
 using System;
+using SocialNetwork.Repository.Abstract;
 
 namespace SocialNetwork.UOW.Impl
 {
 
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
-        private SocialNetworkContext db = new SocialNetworkContext();
+        private readonly SocialNetworkContext db;
 
-        private UserRepository userRepository;
-        private MessageRepository messageRepository;
-        private RelationshipRepository relationshipRepository;
+        private readonly IUserRepository userRepository;
+        private readonly IMessageRepository messageRepository;
+        private readonly IRelationshipRepository relationshipRepository;
 
-        public UserRepository Users
+        public UnitOfWork(SocialNetworkContext db, IUserRepository userRepository, IMessageRepository messageRepository, 
+                          IRelationshipRepository relationshipRepository)
         {
-            get
-            {
-                if (userRepository == null)
-                    userRepository = new UserRepository(db);
-                return userRepository;
-            }
+            this.db = db;
+            this.userRepository = userRepository;
+            this.messageRepository = messageRepository;
+            this.relationshipRepository = relationshipRepository;
         }
-        public MessageRepository Messages
+
+        public IUserRepository Users()
         {
-            get
-            {
-                if (messageRepository == null)
-                    messageRepository = new MessageRepository(db);
-                return messageRepository;
-            }
+            return userRepository;
         }
-        public RelationshipRepository Relationships
+
+        public IRelationshipRepository Relationships()
         {
-            get
-            {
-                if (relationshipRepository == null)
-                    relationshipRepository = new RelationshipRepository(db);
-                return relationshipRepository;
-            }
+            return relationshipRepository;
+        }
+
+        public IMessageRepository Messages()
+        {
+            return messageRepository;
         }
 
         public void Save()

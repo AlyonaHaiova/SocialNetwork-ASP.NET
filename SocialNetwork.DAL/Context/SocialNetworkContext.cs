@@ -33,7 +33,6 @@ namespace SocialNetwork.Context
                 .Property(r => r.User2Id)
                 .ValueGeneratedOnAdd();
 
-
             modelBuilder.Entity<RelationshipEntity>()
               .HasOne<UserEntity>(r => r.User1)
               .WithMany()

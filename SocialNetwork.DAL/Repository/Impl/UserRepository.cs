@@ -3,16 +3,13 @@ using SocialNetwork.Entities;
 using SocialNetwork.Context;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 
 namespace SocialNetwork.Repository.Impl
 {
 
     public class UserRepository : GenericRepository<UserEntity>, IUserRepository
     {
-        public UserRepository(SocialNetworkContext context) : base(context)
-        {
-        }
+        public UserRepository(SocialNetworkContext context) : base(context) { }
 
         public IEnumerable<UserEntity> GetRelatedUsers(int userId)
         {

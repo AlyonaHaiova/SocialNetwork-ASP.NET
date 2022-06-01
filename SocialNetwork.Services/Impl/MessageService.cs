@@ -1,31 +1,33 @@
 ﻿using SocialNetwork.Entities;
-using SocialNetwork.Mappers.Abstract;
-using SocialNetwork.Mappers.Impl;
 using SocialNetwork.Models;
-using SocialNetwork.UOW.Impl;
+using SocialNetwork.UOW.Abstract;
+using SocialNetwork.Services.Abstract;
+using SocialNetwork.Mappers.Abstract;
 using SocialNetwork.Repository.Abstract;
 using System.Collections.Generic;
 using System.Linq;
-using SocialNetwork.Services.Abstract;
 
 namespace SocialNetwork.Services.Impl
 {
     public class MessageService : IMessageService
     {
+        private readonly IUnitOfWork uow;
         private readonly IGenericMapper<MessageEntity, Message> messageMapper;
         private readonly IGenericMapper<UserEntity, User> userMapper;
         private readonly IMessageRepository messageRepository;
         private readonly IUserRepository userRepository;
         private readonly IRelationshipService relationshipService;
 
-        public MessageService()
-        {
-            messageMapper = new MessageMapper();
-            userMapper = new UserMapper();
-            messageRepository = new UnitOfWork().Messages;
-            userRepository = new UnitOfWork().Users;
-            relationshipService = new RelationshipService();
 
+        public MessageService(IUnitOfWork uow, IGenericMapper<MessageEntity, Message> messageMapper, 
+                              IGenericMapper<UserEntity, User> userMapper, IRelationshipService relationshipService)
+        {
+            this.uow = uow;
+            this.messageMapper = messageMapper;
+            this.userMapper = userMapper;
+            this.relationshipService = relationshipService;
+            messageRepository = uow.Messages();
+            userRepository = uow.Users();
         }
 
         public List<Message> GetChatWithFriend(int userId, int friendId)

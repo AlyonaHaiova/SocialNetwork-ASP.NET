@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using SocialNetwork.Repository.Abstract;
 using SocialNetwork.Entities;
 using SocialNetwork.Context;
@@ -11,10 +10,7 @@ namespace SocialNetwork.Repository.Impl
 
     public class MessageRepository : GenericRepository<MessageEntity>, IMessageRepository
     {
-        public MessageRepository(SocialNetworkContext context) : base(context)
-        {
-
-        }
+        public MessageRepository(SocialNetworkContext context) : base(context) { }
 
         public IEnumerable<MessageEntity> GetChatMessages(int firstUserId, int secondUserId)
         {
@@ -25,6 +21,5 @@ namespace SocialNetwork.Repository.Impl
                 .ToList();
         }
 
-  
     }
 }

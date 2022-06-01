@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SocialNetwork.Models;
 using SocialNetwork.Models.Dto;
 using SocialNetwork.Services.Abstract;
-using SocialNetwork.Services.Impl;
 using System;
 using System.Collections.Generic;
 
@@ -15,9 +13,9 @@ namespace SocialNetwork.API.Controllers
     {
         private readonly IMessageService messageService;
 
-        public MessageController()
+        public MessageController(IMessageService messageService)
         {
-            messageService = new MessageService();
+            this.messageService = messageService;
         }
 
         [HttpGet]
